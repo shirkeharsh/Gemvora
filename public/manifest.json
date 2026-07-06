@@ -1,0 +1,21 @@
+{
+  "short_name": "Gemvora",
+  "name": "Gemvora Medical Explainer",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/192/000000/stethoscope.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://img.icons8.com/color/512/000000/stethoscope.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#090a12",
+  "theme_color": "#0d9488",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,57 @@
+# PULSEHEALTH AI - COMPLETE INSTALLATION & API SETUP GUIDE
+
+This tutorial walks you through installing the PulseHealth AI app on your Android device and setting up the Gemini API key.
+
+---
+
+## STEP 1: How to Install the APK on your Android Phone
+
+### 1. Transfer the APK to your Phone
+* Connect your Android phone to your computer using a USB cable.
+* Copy either **`PulseHealth-AI-release.apk`** or **`PulseHealth-AI-debug.apk`** from your computer's Desktop to your phone's internal storage or Download folder.
+* *(Alternatively, you can send the APK file to your phone via WhatsApp, Google Drive, Email, or Telegram).*
+
+### 2. Uninstall Previous Versions First (CRITICAL)
+* If you have any older version of the app (such as the "Pocket AI" debug version) installed on your phone, **you must uninstall it first**.
+* Android prevents installing an updated app if the signature keys don't match (causing a *"Package appears to be invalid"* or *"App not installed"* error).
+
+### 3. Sideload and Install the APK
+* Open the **File Manager** (or My Files) app on your phone.
+* Navigate to your **Downloads** or folder where you saved the APK, and tap on **`PulseHealth-AI-release.apk`**.
+* If prompted, enable **"Allow installation from this source"** for your File Manager.
+* Tap **Install**.
+
+### 4. Bypass Google Play Protect Warning ("May Contain Virus")
+Because this app is compiled locally and not downloaded from the Google Play Store, Android's Play Protect scans will flag it as an "Unknown App":
+* When the warning window pops up, click **"More details"** or **"Advanced"**.
+* Tap **"Install anyway"**.
+* The app will install successfully and appear on your app drawer!
+
+---
+
+## STEP 2: How to Get & Set Up the Gemini API Key
+
+The app requires a Google Gemini API key to perform report explanations and chat.
+
+### 1. Get a Free API Key from Google AI Studio
+1. Go to **[Google AI Studio](https://aistudio.google.com/)** in your web browser.
+2. Sign in with any Google account.
+3. Click the blue **"Create API Key"** button on the top-left sidebar.
+4. Click **"Create API key in new project"**.
+5. Copy the generated key (it starts with `AIzaSy...`).
+
+### 2. Configure the API Key in the App
+1. Open **PulseHealth AI** on your phone or browser.
+2. You will be greeted by the profile configuration screen. Enter your name and select your preferred language.
+3. When prompted, paste the copied **Gemini API Key** into the text field.
+4. The key is securely saved on your device's local storage and will be used for all future analyses.
+
+---
+
+## STEP 3: Running the App in Local Web Development Mode (Optional)
+
+If you want to run the web interface locally on your computer:
+1. Open your terminal in the project root directory.
+2. Run: `npm install` (to install dependencies).
+3. Run: `npm run dev` (to start the local development server).
+4. Open the displayed URL (e.g., `http://localhost:5173`) in your browser.

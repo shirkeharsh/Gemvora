@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* -------------------------------------------------------------
+   1. Unifed Design System & Color Palette
+   ------------------------------------------------------------- */
+:root {
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Plus Jakarta Sans", var(--font-sans);
+
+  /* Light Theme Colors (Clean clinical minimalism) */
+  --bg-app: #fcfdfd;
+  --bg-surface: #ffffff;
+  --bg-surface-variant: #f4f5f6;
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  
+  --accent-primary: #0f766e;
+  --accent-glow: rgba(15, 118, 110, 0.08);
+  --border-subtle: #e4e4e7;
+  --border-focus: #14b8a6;
+  --shadow-premium: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 8px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Dark Theme Colors (Deep space clinical navy-zinc) */
+html.dark, body.dark {
+  --bg-app: #09090b;
+  --bg-surface: #121215;
+  --bg-surface-variant: #18181c;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+  
+  --accent-primary: #14b8a6;
+  --accent-glow: rgba(20, 184, 166, 0.1);
+  --border-subtle: #27272a;
+  --border-focus: #14b8a6;
+  --shadow-premium: 0 4px 30px -4px rgba(0, 0, 0, 0.4), 0 2px 12px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------------------------------------------
+   2. Global Base Reset
+   ------------------------------------------------------------- */
+* {
+  font-family: var(--font-sans);
+  letter-spacing: -0.15px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden !important;
+  background-color: var(--bg-app) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 99px;
+  opacity: 0.3;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* -------------------------------------------------------------
+   3. Conversation & Message Bubbles Layout
+   ------------------------------------------------------------- */
+.conversation-viewport {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.bubble {
+  padding: 12px 16px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  border-radius: 18px;
+  position: relative;
+  word-wrap: break-word;
+  box-shadow: var(--shadow-premium);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* User Message Bubble */
+.bubble-user {
+  background: var(--accent-primary);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+}
+
+/* Assistant Message Bubble */
+.bubble-assistant {
+  background: var(--bg-surface-variant) !important;
+  color: var(--text-primary) !important;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  border: 1px solid var(--border-subtle);
+}
+
+/* -------------------------------------------------------------
+   4. Composer Input System
+   ------------------------------------------------------------- */
+.imessage-input-wrapper {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  background: var(--bg-surface-variant) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 26px;
+  min-height: 52px; /* 52-56dp height */
+  padding: 6px 12px 6px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.imessage-input-wrapper:focus-within {
+  border-color: var(--border-focus) !important;
+  background: var(--bg-surface) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.composer-textarea {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 6px 0; /* balanced vertical padding */
+  max-height: 160px;
+  font-size: 15px; /* highly legible text */
+  line-height: 1.4;
+  color: inherit;
+}
+
+.composer-textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.75 !important;
+  font-weight: 500;
+}
+
+/* Premium Floating Send/Loader Button */
+.imessage-send-btn {
+  background: var(--accent-primary);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.imessage-send-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.imessage-send-btn:active {
+  transform: scale(0.92);
+}
+
+.imessage-send-btn:disabled {
+  background: var(--border-subtle);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* -------------------------------------------------------------
+   5. Floating Navigation capsule
+   ------------------------------------------------------------- */
+.nav-capsule {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(var(--bg-surface), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 99px;
+  padding: 6px;
+  box-shadow: var(--shadow-premium);
+  z-index: 50;
+}
+
+/* -------------------------------------------------------------
+   6. Custom Micro-Animations
+   ------------------------------------------------------------- */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-message {
+  animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.3; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.pulse-dot {
+  animation: pulseDot 1.4s infinite ease-in-out;
+}
+
+.pulse-active {
+  animation: pulseDot 2s infinite ease-in-out;
+}
