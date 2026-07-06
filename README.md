@@ -1,3 +1,22 @@
+<p align="center">
+
+  <img src="logo.png" alt="Gemvora AI" width="180">
+
+</p>
+
+<h1 align="center">Gemvora AI</h1>
+
+<p align="center">
+
+<b>Native Android Clinical Assistant powered by AI</b>
+
+</p>
+
+<p align="center">
+
+Privacy-first • Medical Report Explainer • Voice Assistant • Multilingual
+
+</p>
 # 🩺 Gemvora AI — Native Android Clinical Assistant
 
 Gemvora is a privacy-first, native Android application (APK) designed as a clinical assistant and medical report explainer. Built with React and packaged using Capacitor for Android, Gemvora allows patients to upload PDF reports or scan medical documents, and receive clear, structured explanations of blood levels, medical jargon, and symptoms in simple English or Marathi.
